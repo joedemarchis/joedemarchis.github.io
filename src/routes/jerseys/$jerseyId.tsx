@@ -244,13 +244,6 @@ function JerseyDetail() {
               </p>
             </div>
 
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 px-4 py-2 ring-1 ring-vault-line rounded-sm text-sm hover:text-foreground text-vault-muted transition-colors"
-            >
-              <ArrowLeft className="size-4" />
-              Back to Archive
-            </Link>
           </div>
         </div>
       </section>
