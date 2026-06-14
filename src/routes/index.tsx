@@ -57,7 +57,7 @@ const jerseys: Jersey[] = [
     era: "Modern Classics",
     notes:
       "Custom mesh build featuring the rare block-shadow lettering. Worn during the mid-eighties resurgence.",
-    image: jerseyRangers,
+    images: [jerseyRangers, twillDetail, heroCrest],
   },
   {
     id: "mtl-92",
@@ -69,7 +69,7 @@ const jerseys: Jersey[] = [
     era: "Original Six",
     notes:
       "The final championship cut. Heavy air-knit construction with felt commemorative patches.",
-    image: jerseyCanadiens,
+    images: [jerseyCanadiens, twillDetail, heroCrest],
   },
   {
     id: "que-74",
@@ -81,7 +81,7 @@ const jerseys: Jersey[] = [
     era: "WHA Years",
     notes:
       "WHA era artifact. Features the original hand-cut felt logo and wool blend sleeve stripes.",
-    image: jerseyNordiques,
+    images: [jerseyNordiques, twillDetail, heroCrest],
   },
   {
     id: "usa-80",
@@ -93,7 +93,7 @@ const jerseys: Jersey[] = [
     era: "Expansion Era",
     notes:
       "Heavy-knit Olympic specimen. Acquired via secondary auction in 2014; interior tag is hand-marked.",
-    image: jerseyUsa,
+    images: [jerseyUsa, twillDetail, heroCrest],
   },
   {
     id: "chi-63",
@@ -105,7 +105,7 @@ const jerseys: Jersey[] = [
     era: "Original Six",
     notes:
       "Chain-stitched crest with archival-grade twill stripes. The benchmark Original Six home cut.",
-    image: jerseyBlackhawks,
+    images: [jerseyBlackhawks, twillDetail, heroCrest],
   },
   {
     id: "pit-92",
@@ -117,7 +117,7 @@ const jerseys: Jersey[] = [
     era: "Modern Classics",
     notes:
       "Back-to-back Cup season road sweater. Heavy twill numbering with the short-lived skating penguin.",
-    image: jerseyPenguins,
+    images: [jerseyPenguins, twillDetail, heroCrest],
   },
 ];
 
