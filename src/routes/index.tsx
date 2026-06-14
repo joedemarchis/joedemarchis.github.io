@@ -271,7 +271,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-7">
             <img
-              src={active.image}
+              src={active.images[0]}
               alt={`${active.team} ${active.season} detail`}
               width={1200}
               height={1600}
