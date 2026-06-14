@@ -237,7 +237,7 @@ function Index() {
       {/* Grid */}
       <section
         id="collection"
-        className="py-24 bg-vault-surface/30 ring-1 ring-white/5 scroll-mt-24"
+        className="py-24 bg-vault-surface/30 ring-1 ring-vault-text/5 scroll-mt-24"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-8 mb-16">
