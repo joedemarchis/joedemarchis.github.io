@@ -130,131 +130,131 @@ function JerseyDetail() {
             Back to Archive
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="relative group/image">
-              <img
-                src={selectedImage}
-                alt={`${jersey.team} ${jersey.season} ${jersey.type} jersey view ${selectedImageIndex + 1}`}
-                width={1200}
-                height={1600}
-                className="w-full aspect-[3/4] object-cover bg-vault-surface outline-1 -outline-offset-1 outline-white/5 rounded-[min(1vw,12px)]"
-              />
+            <div className="lg:col-span-7 space-y-6">
+              <div className="relative group/image">
+                <img
+                  src={selectedImage}
+                  alt={`${jersey.team} ${jersey.season} ${jersey.type} jersey view ${selectedImageIndex + 1}`}
+                  width={1200}
+                  height={1600}
+                  className="w-full aspect-[3/4] object-cover bg-vault-surface outline-1 -outline-offset-1 outline-white/5 rounded-[min(1vw,12px)]"
+                />
 
-              {imageCount > 1 && (
-                <>
-                  <button
-                    type="button"
-                    aria-label="Show previous jersey photo"
-                    onClick={() => goToImage(-1)}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 grid place-items-center size-11 rounded-full bg-black/60 text-white ring-1 ring-white/15 opacity-0 transition-opacity hover:bg-black/80 focus:opacity-100 focus:outline-none focus-visible:ring-1 focus-visible:ring-heritage-red group-hover/image:opacity-100 group-focus-within/image:opacity-100"
-                  >
-                    <ChevronLeft className="size-6" />
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Show next jersey photo"
-                    onClick={() => goToImage(1)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 grid place-items-center size-11 rounded-full bg-black/60 text-white ring-1 ring-white/15 opacity-0 transition-opacity hover:bg-black/80 focus:opacity-100 focus:outline-none focus-visible:ring-1 focus-visible:ring-heritage-red group-hover/image:opacity-100 group-focus-within/image:opacity-100"
-                  >
-                    <ChevronRight className="size-6" />
-                  </button>
-                </>
+                {imageCount > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      aria-label="Show previous jersey photo"
+                      onClick={() => goToImage(-1)}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 grid place-items-center size-11 rounded-full bg-black/60 text-white ring-1 ring-white/15 opacity-0 transition-opacity hover:bg-black/80 focus:opacity-100 focus:outline-none focus-visible:ring-1 focus-visible:ring-heritage-red group-hover/image:opacity-100 group-focus-within/image:opacity-100"
+                    >
+                      <ChevronLeft className="size-6" />
+                    </button>
+                    <button
+                      type="button"
+                      aria-label="Show next jersey photo"
+                      onClick={() => goToImage(1)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 grid place-items-center size-11 rounded-full bg-black/60 text-white ring-1 ring-white/15 opacity-0 transition-opacity hover:bg-black/80 focus:opacity-100 focus:outline-none focus-visible:ring-1 focus-visible:ring-heritage-red group-hover/image:opacity-100 group-focus-within/image:opacity-100"
+                    >
+                      <ChevronRight className="size-6" />
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {jersey.images.length > 1 && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-4">
+                    <h2 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-vault-faint">
+                      Photo Previews
+                    </h2>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-vault-faint">
+                      View {selectedImageIndex + 1} / {jersey.images.length}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
+                    {jersey.images.map((src, i) => {
+                      const isActive = selectedImageIndex === i;
+                      return (
+                        <button
+                          key={src}
+                          type="button"
+                          aria-label={`Show ${jersey.name} photo ${i + 1}`}
+                          aria-pressed={isActive}
+                          onClick={() => setSelectedImageIndex(i)}
+                          className={
+                            "group/thumb overflow-hidden rounded-[min(1vw,12px)] bg-vault-surface text-left outline-1 -outline-offset-1 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-heritage-red " +
+                            (isActive
+                              ? "outline-heritage-red"
+                              : "outline-white/10 hover:outline-white/35")
+                          }
+                        >
+                          <img
+                            src={src}
+                            alt={`${jersey.team} preview ${i + 1}`}
+                            loading="lazy"
+                            className="w-full aspect-square object-cover transition-transform duration-500 group-hover/thumb:scale-[1.03]"
+                          />
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
               )}
             </div>
 
-            {jersey.images.length > 1 && (
-              <div className="space-y-3">
-                <div className="flex items-center justify-between gap-4">
-                  <h2 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-vault-faint">
-                    Photo Previews
-                  </h2>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-vault-faint">
-                    View {selectedImageIndex + 1} / {jersey.images.length}
+            <div className="lg:col-span-5 space-y-12">
+              <div className="space-y-4">
+                <h4 className="text-sm font-mono text-vault-faint uppercase tracking-widest">
+                  Artifact Analysis — {jersey.inventory}
+                </h4>
+                <h1 className="text-4xl md:text-5xl font-display italic leading-tight">
+                  {jersey.name}
+                </h1>
+                <p className="text-vault-muted text-pretty text-lg max-w-[40ch]">{jersey.notes}</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-y-8 divide-x divide-vault-line/60">
+                <div className="pl-0">
+                  <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
+                    League
                   </span>
+                  <span className="text-foreground">{jersey.league}</span>
                 </div>
-                <div className="grid grid-cols-3 gap-4">
-                  {jersey.images.map((src, i) => {
-                    const isActive = selectedImageIndex === i;
-                    return (
-                      <button
-                        key={src}
-                        type="button"
-                        aria-label={`Show ${jersey.name} photo ${i + 1}`}
-                        aria-pressed={isActive}
-                        onClick={() => setSelectedImageIndex(i)}
-                        className={
-                          "group/thumb overflow-hidden rounded-[min(1vw,12px)] bg-vault-surface text-left outline-1 -outline-offset-1 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-heritage-red " +
-                          (isActive
-                            ? "outline-heritage-red"
-                            : "outline-white/10 hover:outline-white/35")
-                        }
-                      >
-                        <img
-                          src={src}
-                          alt={`${jersey.team} preview ${i + 1}`}
-                          loading="lazy"
-                          className="w-full aspect-square object-cover transition-transform duration-500 group-hover/thumb:scale-[1.03]"
-                        />
-                      </button>
-                    );
-                  })}
+                <div className="pl-8">
+                  <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
+                    Team
+                  </span>
+                  <span className="text-foreground">{jersey.team}</span>
+                </div>
+                <div className="pl-0">
+                  <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
+                    Season
+                  </span>
+                  <span className="text-foreground">{jersey.season}</span>
+                </div>
+                <div className="pl-8">
+                  <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
+                    Type
+                  </span>
+                  <span className="text-foreground">{jersey.type}</span>
                 </div>
               </div>
-            )}
-          </div>
 
-          <div className="lg:col-span-5 space-y-12">
-            <div className="space-y-4">
-              <h4 className="text-sm font-mono text-vault-faint uppercase tracking-widest">
-                Artifact Analysis — {jersey.inventory}
-              </h4>
-              <h1 className="text-4xl md:text-5xl font-display italic leading-tight">
-                {jersey.name}
-              </h1>
-              <p className="text-vault-muted text-pretty text-lg max-w-[40ch]">{jersey.notes}</p>
+              <div className="space-y-6">
+                <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-vault-faint">
+                  Provenance Notes
+                </h4>
+                <p className="text-sm text-vault-muted leading-relaxed max-w-[40ch]">
+                  Wear patterns and interior tagging are documented on intake. Each artifact is
+                  photographed in a climate-controlled environment and assigned an inventory code
+                  referenced throughout the archive.
+                </p>
+              </div>
+
             </div>
-
-            <div className="grid grid-cols-2 gap-y-8 divide-x divide-vault-line/60">
-              <div className="pl-0">
-                <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
-                  Era
-                </span>
-                <span className="text-foreground">{jersey.era}</span>
-              </div>
-              <div className="pl-8">
-                <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
-                  Team
-                </span>
-                <span className="text-foreground">{jersey.team}</span>
-              </div>
-              <div className="pl-0">
-                <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
-                  Season
-                </span>
-                <span className="text-foreground">{jersey.season}</span>
-              </div>
-              <div className="pl-8">
-                <span className="block text-[10px] uppercase tracking-widest text-vault-faint mb-1">
-                  Type
-                </span>
-                <span className="text-foreground">{jersey.type}</span>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-vault-faint">
-                Provenance Notes
-              </h4>
-              <p className="text-sm text-vault-muted leading-relaxed max-w-[40ch]">
-                Wear patterns and interior tagging are documented on intake. Each artifact is
-                photographed in a climate-controlled environment and assigned an inventory code
-                referenced throughout the archive.
-              </p>
-            </div>
-
           </div>
         </div>
-      </div>
       </section>
     </div>
   );
