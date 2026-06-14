@@ -7,7 +7,7 @@ import jerseyBlackhawks from "@/assets/jersey-blackhawks.jpg";
 import jerseyPenguins from "@/assets/jersey-penguins.jpg";
 import twillDetail from "@/assets/twill-detail.jpg";
 
-export type Era = "All Eras" | "Original Six" | "Expansion Era" | "WHA Years" | "Modern Classics";
+export type Era = "All Leagues" | "NCAA" | "NHL" | "CHL" | "";
 
 export interface Jersey {
   id: string;
@@ -16,12 +16,12 @@ export interface Jersey {
   type: "Home" | "Away" | "Throwback" | "Third";
   season: string;
   inventory: string;
-  era: Exclude<Era, "All Eras">;
+  era: Exclude<Era, "All Leagues">;
   notes: string;
   images: string[];
 }
 
-export const eras: Era[] = ["All Eras", "Original Six", "Expansion Era", "WHA Years", "Modern Classics"];
+export const eras: Era[] = ["All Leagues", "NCAA", "NHL", "CHL", ""];
 
 export const jerseys: Jersey[] = [
   {
@@ -31,7 +31,7 @@ export const jerseys: Jersey[] = [
     type: "Home",
     season: "1985-86",
     inventory: "NYR-85-H",
-    era: "Modern Classics",
+    era: "",
     notes:
       "Custom mesh build featuring the rare block-shadow lettering. Worn during the mid-eighties resurgence.",
     images: [jerseyRangers, twillDetail, heroCrest],
@@ -43,7 +43,7 @@ export const jerseys: Jersey[] = [
     type: "Away",
     season: "1992-93",
     inventory: "MTL-92-A",
-    era: "Original Six",
+    era: "NCAA",
     notes:
       "The final championship cut. Heavy air-knit construction with felt commemorative patches.",
     images: [jerseyCanadiens, twillDetail, heroCrest],
@@ -55,7 +55,7 @@ export const jerseys: Jersey[] = [
     type: "Throwback",
     season: "1974-75",
     inventory: "QUE-74-T",
-    era: "WHA Years",
+    era: "CHL",
     notes:
       "WHA era artifact. Features the original hand-cut felt logo and wool blend sleeve stripes.",
     images: [jerseyNordiques, twillDetail, heroCrest],
@@ -67,7 +67,7 @@ export const jerseys: Jersey[] = [
     type: "Home",
     season: "1979-80",
     inventory: "USA-80-H",
-    era: "Expansion Era",
+    era: "NHL",
     notes:
       "Heavy-knit Olympic specimen. Acquired via secondary auction in 2014; interior tag is hand-marked.",
     images: [jerseyUsa, twillDetail, heroCrest],
@@ -79,7 +79,7 @@ export const jerseys: Jersey[] = [
     type: "Home",
     season: "1963-64",
     inventory: "CHI-63-H",
-    era: "Original Six",
+    era: "NCAA",
     notes:
       "Chain-stitched crest with archival-grade twill stripes. The benchmark Original Six home cut.",
     images: [jerseyBlackhawks, twillDetail, heroCrest],
@@ -91,7 +91,7 @@ export const jerseys: Jersey[] = [
     type: "Away",
     season: "1992-93",
     inventory: "PIT-92-A",
-    era: "Modern Classics",
+    era: "",
     notes:
       "Back-to-back Cup season road sweater. Heavy twill numbering with the short-lived skating penguin.",
     images: [jerseyPenguins, twillDetail, heroCrest],
