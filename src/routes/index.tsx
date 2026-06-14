@@ -130,13 +130,6 @@ function Index() {
             </a>
           </div>
         </div>
-        <div className="bg-vault-surface/40 py-3">
-          <div className="max-w-7xl mx-auto px-6 flex flex-wrap gap-6 text-[10px] uppercase tracking-[0.2em] text-vault-faint">
-            <span>Active league: {activeLeague}</span>
-            <span>Items: {jerseys.length}</span>
-            <span className="hidden sm:inline">Location: Climate Controlled Vault</span>
-          </div>
-        </div>
       </nav>
 
       {/* Hero */}
