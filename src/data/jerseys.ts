@@ -21,7 +21,7 @@ export interface Jersey {
   images: string[];
 }
 
-export const eras: Era[] = ["All Leagues", "NCAA", "NHL", "CHL", ""];
+export const eras: Era[] = ["All Leagues", "NCAA", "NHL", "CHL"];
 
 export const jerseys: Jersey[] = [
   {
@@ -31,7 +31,7 @@ export const jerseys: Jersey[] = [
     type: "Home",
     season: "1985-86",
     inventory: "NYR-85-H",
-    era: "",
+    era: "NHL",
     notes:
       "Custom mesh build featuring the rare block-shadow lettering. Worn during the mid-eighties resurgence.",
     images: [jerseyRangers, twillDetail, heroCrest],
@@ -91,7 +91,7 @@ export const jerseys: Jersey[] = [
     type: "Away",
     season: "1992-93",
     inventory: "PIT-92-A",
-    era: "",
+    era: "NHL",
     notes:
       "Back-to-back Cup season road sweater. Heavy twill numbering with the short-lived skating penguin.",
     images: [jerseyPenguins, twillDetail, heroCrest],

@@ -196,7 +196,7 @@ function Index() {
                         : "ring-vault-line text-vault-muted hover:text-foreground")
                     }
                   >
-                    {era === "" ? "\u00A0" : era}
+                    {era}
                   </button>
                 );
               })}
