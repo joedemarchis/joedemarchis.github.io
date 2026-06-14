@@ -43,7 +43,7 @@ interface Jersey {
   inventory: string;
   era: Exclude<Era, "All Eras">;
   notes: string;
-  image: string;
+  images: string[];
 }
 
 const jerseys: Jersey[] = [
