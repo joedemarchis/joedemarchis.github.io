@@ -139,7 +139,7 @@ function Index() {
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md divide-y divide-vault-line/60">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#top" className="font-display italic text-xl tracking-tight">
-            The Stitched Archive
+            Pretty Cool Jerseys
           </a>
           <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest text-vault-muted font-medium">
             <a href="#collection" className="hover:text-foreground transition-colors">
@@ -365,7 +365,7 @@ function Index() {
       <footer className="py-12 border-t border-vault-line/60">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-[10px] uppercase tracking-[0.3em] text-vault-faint">
-            © 2026 The Stitched Archive — Hockey Jersey Collection
+            © 2026 Pretty Cool Jerseys — Hockey Jersey Collection
           </div>
           <div className="flex gap-8 text-[10px] uppercase tracking-[0.2em] text-vault-muted">
             <a href="#collection" className="hover:text-foreground">
