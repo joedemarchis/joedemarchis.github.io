@@ -1,6 +1,7 @@
 import { fleurDeLisHeavy } from "./chl/nordiques/team-issued/throwback";
 import { madhouseRed } from "./ncaa/blackhawks/team-issued/home";
 import { centennialHeritage } from "./ncaa/canadiens/team-issued/away";
+import { camCrottyHome } from "./nhl/arizona-coyotes/cam-crotty/home";
 import { roboPenAway } from "./nhl/penguins/team-issued/away";
 import { empireStateClassic } from "./nhl/rangers/team-issued/home";
 import { miracleWool } from "./nhl/usa-olympic/team-issued/home";
@@ -11,6 +12,7 @@ export type { Jersey, JerseyLeague, JerseyStyle, League } from "./types";
 export const leagues: League[] = ["All Leagues", "NCAA", "NHL", "CHL"];
 
 export const jerseys: Jersey[] = [
+  camCrottyHome,
   empireStateClassic,
   centennialHeritage,
   fleurDeLisHeavy,
