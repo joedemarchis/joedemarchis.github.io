@@ -101,7 +101,7 @@
 }
 
 img[src*="CrottyHome"] {
-  background-color: #858580;
+  background-color: #808080;
   object-fit: contain !important;
   transform: none !important;
 }
