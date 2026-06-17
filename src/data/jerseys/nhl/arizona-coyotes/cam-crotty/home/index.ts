@@ -1,5 +1,5 @@
-import crottyHomeBack from "./GrottyHomeBack.png";
-import crottyHomeFront from "./GrottyHomeFront.png";
+import crottyHomeBack from "@/assets/jerseys/nhl/arizona-coyotes/cam-crotty/home/GrottyHomeBack.webp";
+import crottyHomeFront from "@/assets/jerseys/nhl/arizona-coyotes/cam-crotty/home/GrottyHomeFront.webp";
 import type { Jersey } from "../../../../types";
 
 export const camCrottyHome: Jersey = {
