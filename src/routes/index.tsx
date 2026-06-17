@@ -356,7 +356,7 @@ function Index() {
                     Sort
                     <select
                       value={sortBy}
-                      onChange={(event) => setSortBy(event.target.value as "default" | "season" | "team" | "player")}
+                      onChange={(event) => setSortBy(event.target.value as SortField)}
                       className="h-11 rounded-sm bg-background px-3 text-sm normal-case tracking-normal text-foreground ring-1 ring-vault-line outline-none transition-colors focus:ring-heritage-red"
                     >
                       <option value="default">Default</option>
@@ -370,7 +370,33 @@ function Index() {
                     type="button"
                     onClick={() => setSortDir((d) => (d === "asc" ? "desc" : "asc"))}
                     title={sortDir === "asc" ? "Ascending" : "Descending"}
-                    className="h-11 w-11 grid place-items-center rounded-sm ring-1 ring-vault-line text-vault-muted hover:text-foreground hover:ring-heritage-red transition-colors"
+                    disabled={sortBy === "default"}
+                    className="h-11 w-11 grid place-items-center rounded-sm ring-1 ring-vault-line text-vault-muted hover:text-foreground hover:ring-heritage-red transition-colors disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    <ArrowUpDown className="size-4" />
+                  </button>
+
+                  <label className="flex min-w-[140px] flex-col gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-vault-faint">
+                    Then by
+                    <select
+                      value={sortBy2}
+                      onChange={(event) => setSortBy2(event.target.value as SortField)}
+                      disabled={sortBy === "default"}
+                      className="h-11 rounded-sm bg-background px-3 text-sm normal-case tracking-normal text-foreground ring-1 ring-vault-line outline-none transition-colors focus:ring-heritage-red disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                      <option value="default">None</option>
+                      {sortBy !== "season" && <option value="season">Season</option>}
+                      {sortBy !== "team" && <option value="team">Team</option>}
+                      {sortBy !== "player" && <option value="player">Player</option>}
+                    </select>
+                  </label>
+
+                  <button
+                    type="button"
+                    onClick={() => setSortDir2((d) => (d === "asc" ? "desc" : "asc"))}
+                    title={sortDir2 === "asc" ? "Ascending" : "Descending"}
+                    disabled={sortBy === "default" || sortBy2 === "default"}
+                    className="h-11 w-11 grid place-items-center rounded-sm ring-1 ring-vault-line text-vault-muted hover:text-foreground hover:ring-heritage-red transition-colors disabled:cursor-not-allowed disabled:opacity-40"
                   >
                     <ArrowUpDown className="size-4" />
                   </button>
