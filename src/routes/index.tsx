@@ -179,17 +179,23 @@ function Index() {
       return matchesTeam && matchesType && matchesSeason && matchesSearch;
     });
 
+    const compare = (a: Jersey, b: Jersey, field: SortField) => {
+      if (field === "team") return a.team.localeCompare(b.team);
+      if (field === "player") return a.player.localeCompare(b.player);
+      if (field === "season") return getSeasonYear(a.season) - getSeasonYear(b.season);
+      return 0;
+    };
+
     if (sortBy === "default") return result;
 
-    const dir = sortDir === "asc" ? 1 : -1;
+    const dir1 = sortDir === "asc" ? 1 : -1;
+    const dir2 = sortDir2 === "asc" ? 1 : -1;
     return [...result].sort((a, b) => {
-      let cmp = 0;
-      if (sortBy === "team") cmp = a.team.localeCompare(b.team);
-      else if (sortBy === "player") cmp = a.player.localeCompare(b.player);
-      else if (sortBy === "season") cmp = getSeasonYear(a.season) - getSeasonYear(b.season);
-      return cmp * dir;
+      const primary = compare(a, b, sortBy) * dir1;
+      if (primary !== 0 || sortBy2 === "default" || sortBy2 === sortBy) return primary;
+      return compare(a, b, sortBy2) * dir2;
     });
-  }, [leagueItems, searchTerm, seasonFilter, teamFilter, typeFilter, sortBy, sortDir]);
+  }, [leagueItems, searchTerm, seasonFilter, teamFilter, typeFilter, sortBy, sortDir, sortBy2, sortDir2]);
 
   const hasAdvancedFilters =
     teamFilter !== "All Teams" ||
