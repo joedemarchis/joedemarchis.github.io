@@ -9,6 +9,7 @@ const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "jersey-s
 const githubPagesBase = repositoryName.endsWith(".github.io") ? "/" : `/${repositoryName}/`;
 
 function preloadHeroImage(): Plugin {
+  const base = isGitHubPages ? githubPagesBase : "/";
   return {
     name: "preload-hero-image",
     transformIndexHtml: {
@@ -18,7 +19,8 @@ function preloadHeroImage(): Plugin {
         if (!bundle) return html;
         for (const [fileName, chunk] of Object.entries(bundle)) {
           if (chunk.type === "asset" && /hero-crest/i.test(fileName)) {
-            const preload = `  <link rel="preload" as="image" href="${githubPagesBase}${fileName}" fetchpriority="high" />`;
+            const assetPath = `${base}${fileName}`.replace(/\/+/g, "/");
+            const preload = `  <link rel="preload" as="image" href="${assetPath}" fetchpriority="high" />`;
             return html.replace("</head>", `${preload}\n</head>`);
           }
         }
