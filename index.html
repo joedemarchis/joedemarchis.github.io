@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pretty Cool Jerseys</title>
+    <meta
+      name="description"
+      content="A hockey jersey collection documenting NHL, NCAA, and CHL jerseys with photo references and archive notes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --page: #f2eee5;
+        --surface: #ebe5da;
+        --line: #d7d0c3;
+        --text: #111827;
+        --muted: #5f6673;
+        --red: #8f1f1f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--page);
+        color: var(--text);
+        font-family: Geist, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+        padding: 32px 0 56px;
+      }
+
+      nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid color-mix(in srgb, var(--line), transparent 30%);
+      }
+
+      nav .shell {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-family: Newsreader, Georgia, serif;
+        font-size: 24px;
+        font-style: italic;
+        text-decoration: none;
+      }
+
+      .nav-link {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1.18fr);
+        gap: 48px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 10ch;
+        font-family: Newsreader, Georgia, serif;
+        font-size: clamp(64px, 9vw, 132px);
+        font-style: italic;
+        font-weight: 400;
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .intro {
+        max-width: 54ch;
+        margin: 26px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid var(--red);
+        border-radius: 4px;
+        background: var(--red);
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--text);
+        border-color: var(--line);
+      }
+
+      .hero-photo {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 24px 60px rgba(17, 24, 39, 0.18);
+      }
+
+      .section {
+        padding: 80px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: Newsreader, Georgia, serif;
+        font-size: clamp(40px, 6vw, 72px);
+        font-weight: 400;
+        letter-spacing: 0;
+      }
+
+      .section-note {
+        max-width: 42ch;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      .card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 8px;
+        background: #737373;
+      }
+
+      .card:first-child img {
+        aspect-ratio: auto;
+        object-fit: contain;
+      }
+
+      .card h3 {
+        margin: 18px 0 8px;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      footer {
+        padding: 28px 0 40px;
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid,
+        .cards,
+        .section-head {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head {
+          display: grid;
+        }
+
+        h1 {
+          max-width: 8ch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="shell">
+        <a class="brand" href="./">Pretty Cool Jerseys</a>
+        <a class="nav-link" href="#collection">Collection</a>
+      </div>
+    </nav>
+
+    <header>
+      <div class="shell hero">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Hockey Jersey Archive</p>
+            <h1>Pretty Cool Jerseys</h1>
+            <p class="intro">
+              A growing catalog of hockey jerseys, photo references, and archive notes across
+              NHL, NCAA, and CHL pieces.
+            </p>
+            <div class="actions">
+              <a class="button" href="#collection">View Preview</a>
+              <a class="button secondary" href="https://github.com/joedemarchis/joedemarchis.github.io">GitHub Repo</a>
+            </div>
+          </div>
+          <img
+            class="hero-photo"
+            src="src/assets/hero-crest.jpg"
+            alt="Close-up detail of a hockey jersey crest"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main id="collection" class="section">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Archive Preview</h2>
+          <p class="section-note">
+            The full interactive archive is being prepared. This landing page keeps the public
+            GitHub Pages site live while the collection grows.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <img
+              src="src/assets/jerseys/nhl/arizona-coyotes/cam-crotty/home/DSC03281.jpg"
+              alt="Cam Crotty Arizona Coyotes home jersey front"
+            />
+            <h3>Cam Crotty Home</h3>
+            <p>Arizona Coyotes home jersey documented with front and back photo references.</p>
+          </article>
+          <article class="card">
+            <img src="src/assets/jersey-rangers.jpg" alt="New York Rangers home jersey" />
+            <h3>Empire State Classic</h3>
+            <p>Custom mesh build with rare block-shadow lettering from the mid-eighties era.</p>
+          </article>
+          <article class="card">
+            <img src="src/assets/jersey-canadiens.jpg" alt="Montreal Canadiens red jersey" />
+            <h3>Centennial Heritage</h3>
+            <p>Heavy air-knit construction with felt commemorative patch details.</p>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="shell">Copyright 2026 Pretty Cool Jerseys</div>
+    </footer>
+  </body>
+</html>
