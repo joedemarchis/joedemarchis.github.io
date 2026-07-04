@@ -121,11 +121,15 @@ function Index() {
   const [typeFilter, setTypeFilter] = useState("All Types");
   const [seasonFilter, setSeasonFilter] = useState("All Seasons");
   const [searchTerm, setSearchTerm] = useState("");
-  type SortField = "default" | "season" | "team" | "player";
-  const [sortBy, setSortBy] = useState<SortField>("default");
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
-  const [sortBy2, setSortBy2] = useState<SortField>("default");
-  const [sortDir2, setSortDir2] = useState<"asc" | "desc">("asc");
+  type SortOption =
+    | "default"
+    | "player-asc"
+    | "player-desc"
+    | "season-desc"
+    | "season-asc"
+    | "team-asc"
+    | "team-desc";
+  const [sortOption, setSortOption] = useState<SortOption>("default");
 
   const isLeagueSelected = activeLeague !== "All Leagues";
 
