@@ -1,17 +1,15 @@
 ## Goal
-Every jersey card should look like the Cam Crotty screenshot: the photo sits on a **light gray background** inside the square, not the dark vault surface.
+On the jersey detail page, show the full jersey photo — no cropping — matching the homepage grid fix.
 
-## Change
-Single file: `src/routes/index.tsx`, `JerseyCard` image container (line ~40).
+## Changes
+Single file: `src/routes/jerseys/$jerseyId.tsx`.
 
-- Swap the container background from `bg-vault-surface` (dark) to a light neutral gray that matches the Crotty screenshot (e.g. `bg-neutral-200`).
-- Keep `object-contain` so no photo gets cropped.
-- Keep everything else (aspect-square, rounded corners, hover scale, carousel arrows) unchanged.
+1. **Main image (line 140)**: change `aspect-[3/4] object-cover bg-vault-surface` → `aspect-square object-contain bg-neutral-200`. Square frame + contain means the whole jersey fits with light gray padding, matching the homepage cards.
+2. **Thumbnails (line 196)**: change `object-cover` → `object-contain`, and swap the thumbnail button background from `bg-vault-surface` (line 186) to `bg-neutral-200` so the thumb previews match the main image.
 
 ## Result
-- Crotty: unchanged (his photo already has that light gray backdrop baked in — it will blend).
-- Knierim and any edge-to-edge photo: sits centered on the light gray square with matching letterbox padding.
-- Every future upload lands on the same light gray card, no per-image processing.
+- Every jersey (Ness, Knierim, Crotty, etc.) shows fully on the detail page inside a light-gray square, same look as the homepage grid.
+- Thumbnails mirror the same treatment.
 
 ## Out of scope
-Detail pages, hero, filter section, data edits.
+Homepage grid (already done), hero, filters, data edits.
