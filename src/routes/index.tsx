@@ -37,14 +37,14 @@ function JerseyCard({ jersey }: { jersey: Jersey }) {
       params={{ jerseyId: jersey.id }}
       className="flex flex-col gap-6 text-left group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-heritage-red rounded-[min(1vw,12px)]"
     >
-      <div className="relative w-full aspect-square bg-vault-surface outline-1 -outline-offset-1 outline-vault-text/5 rounded-[min(1vw,12px)] overflow-hidden p-6 sm:p-8">
+      <div className="relative w-full aspect-square outline-1 -outline-offset-1 outline-vault-text/5 rounded-[min(1vw,12px)] overflow-hidden">
         <img
           src={jersey.images[idx]}
           alt={`${jersey.team} ${jersey.season} ${jersey.type} jersey — view ${idx + 1}`}
           width={1024}
           height={1024}
           loading="lazy"
-          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
         />
         {count > 1 && (
           <>
