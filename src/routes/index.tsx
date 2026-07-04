@@ -44,7 +44,7 @@ function JerseyCard({ jersey }: { jersey: Jersey }) {
           width={1024}
           height={1280}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
         />
         {count > 1 && (
           <>
