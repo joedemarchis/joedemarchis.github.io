@@ -183,23 +183,16 @@ function Index() {
       return matchesTeam && matchesType && matchesSeason && matchesSearch;
     });
 
-    const compare = (a: Jersey, b: Jersey, field: SortField) => {
-      if (field === "team") return a.team.localeCompare(b.team);
-      if (field === "player") return a.player.localeCompare(b.player);
-      if (field === "season") return getSeasonYear(a.season) - getSeasonYear(b.season);
-      return 0;
-    };
+    if (sortOption === "default") return result;
 
-    if (sortBy === "default") return result;
-
-    const dir1 = sortDir === "asc" ? 1 : -1;
-    const dir2 = sortDir2 === "asc" ? 1 : -1;
+    const [field, dir] = sortOption.split("-") as ["player" | "season" | "team", "asc" | "desc"];
+    const mul = dir === "asc" ? 1 : -1;
     return [...result].sort((a, b) => {
-      const primary = compare(a, b, sortBy) * dir1;
-      if (primary !== 0 || sortBy2 === "default" || sortBy2 === sortBy) return primary;
-      return compare(a, b, sortBy2) * dir2;
+      if (field === "team") return a.team.localeCompare(b.team) * mul;
+      if (field === "player") return a.player.localeCompare(b.player) * mul;
+      return (getSeasonYear(a.season) - getSeasonYear(b.season)) * mul;
     });
-  }, [leagueItems, searchTerm, seasonFilter, teamFilter, typeFilter, sortBy, sortDir, sortBy2, sortDir2]);
+  }, [leagueItems, searchTerm, seasonFilter, teamFilter, typeFilter, sortOption]);
 
   const hasAdvancedFilters =
     teamFilter !== "All Teams" ||
